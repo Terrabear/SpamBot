@@ -182,7 +182,7 @@ namespace SpamBot
                 }
                 if (Config.DisableNPCMessages == true && e.number2 == 255 && e.number3 == 0 && e.number4 == 0)
                 {
-                    if (e.text.Contains("was slain") || e.text.Contains("has left!"))
+                    if (e.text.Contains("was slain...") || e.text.Contains("has left!"))
                     {
                         e.Handled = true;
                     }
