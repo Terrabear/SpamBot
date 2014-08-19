@@ -180,14 +180,21 @@ namespace SpamBot
                         e.Handled = true;
                     }
                 }
-                if (Config.DisableNPCMessages == true && e.number2 == 255 && e.number3 == 0 && e.number4 == 0)
+                if (Config.DisableFwMessages == true && e.number2 == 0 && e.number3 == 128 && e.number4 == 0)
+                {
+                    if (e.text.StartsWith("Launched Firework"))
+                    {
+                        e.Handled = true;
+                    }
+                }
+                /*if (Config.DisableNPCMessages == true && e.number2 == 255 && e.number3 == 0 && e.number4 == 0)
                 {
                     if (e.text.Contains("was slain...") || e.text.Contains("has left!"))
                     {
                         e.Handled = true;
                     }
-                }
-                if (Config.DisablePVPMessages == true && e.number2 == 255 && e.number3 == 255 && e.number4 == 255)
+                }*/
+                if (Config.DisablePvPMessages == true && e.number2 == 255 && e.number3 == 255 && e.number4 == 255)
                 {
                     if (e.text.Contains("has enabled PvP!") || e.text.Contains("has disabled PvP!"))
                     {
@@ -202,6 +209,21 @@ namespace SpamBot
 						e.Handled = true;
 					}
 				}
+                if (Config.DisableSaveMessages == true && e.number2 == 255 && e.number3 == 255 && e.number4 == 0)
+                {
+                    if (e.text == "World saved.")
+                    {
+                        e.Handled = true;
+                    }
+                }
+                if (Config.DisableSaveMessages == true && e.number2 == 0 && e.number3 == 128 && e.number4 == 0)
+                {
+                    if (e.text == "SSC has been saved." ||
+                        e.text == "Save succeeded.")
+                    {
+                        e.Handled = true;
+                    }
+                }
 			}
 		}
 
